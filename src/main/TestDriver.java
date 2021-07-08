@@ -2,8 +2,6 @@ package main;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Scanner;
 
 public class TestDriver {
@@ -11,7 +9,7 @@ public class TestDriver {
         Scanner input = new Scanner(System.in);
         int counter = 0;
         while (counter >= 0 && counter <= 4) {
-            System.out.println("Type 1 to generate the employeeNumberOrder.txt\n" +
+            System.out.println("\nType 1 to generate the employeeNumberOrder.txt\n" +
                     "Type 2 to generate the nameOrder.txt\n" +
                     "Type 3 to generate the timeOrder.txt\n" +
                     "Type 4 to generate the payOrder.txt\n" +
@@ -19,21 +17,70 @@ public class TestDriver {
             counter = input.nextInt();
             switch (counter) {
                 case 1:
+                    //NEED TO WRITE CODE TO GENERATE employeeNumberOrder.txt HERE
                     try {
-                        File file = new File("employees.txt");
+                        File file = new File("employeeNumberOrder.txt");
                         Scanner textRead = new Scanner(file);
 
                         while (textRead.hasNext()) {
-                            System.out.println((String)textRead.next());
+                            System.out.println((String) textRead.nextLine());
                         }
-
                         textRead.close();
+
+                        counter = 0;
+                        break;
                     } catch (IOException e) {
                         System.out.println("Error");
                     }
-                case 2: //CALL THE nameOrder.txt GENERATOR
-                case 3: //CALL THE timeOrder.txt GENERATOR
-                case 4: //CALL THE payOrder.txt GENERATOR
+
+                case 2:
+                    //NEED TO WRITE CODE TO GENERATE nameOrder.txt HERE
+                    try {
+                        File file = new File("nameOrder.txt");
+                        Scanner textRead = new Scanner(file);
+
+                        while (textRead.hasNext()) {
+                            System.out.println((String) textRead.nextLine());
+                        }
+                        textRead.close();
+
+                        counter = 0;
+                        break;
+                    } catch (IOException e) {
+                        System.out.println("Error");
+                    }
+                case 3:
+                    //NEED TO WRITE CODE TO GENERATE timeOrder.txt HERE
+                    try {
+                        File file = new File("timeOrder.txt");
+                        Scanner textRead = new Scanner(file);
+
+                        while (textRead.hasNext()) {
+                            System.out.println((String) textRead.nextLine());
+                        }
+                        textRead.close();
+
+                        counter = 0;
+                        break;
+                    } catch (IOException e) {
+                        System.out.println("Error");
+                    }
+                case 4:
+                    //NEED TO WRITE CODE TO GENERATE payOrder.txt HERE
+                    try {
+                        File file = new File("payOrder.txt");
+                        Scanner textRead = new Scanner(file);
+
+                        while (textRead.hasNext()) {
+                            System.out.println((String) textRead.nextLine());
+                        }
+                        textRead.close();
+
+                        counter = 0;
+                        break;
+                    } catch (IOException e) {
+                        System.out.println("Error");
+                    }
                 case 5:
                     break;
                 default:
@@ -41,6 +88,7 @@ public class TestDriver {
                     counter = 0;
                     break;
             }
+
 
 
 //            System.out.println("\nSort by Employee Last Name:");
