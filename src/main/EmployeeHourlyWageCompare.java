@@ -1,3 +1,5 @@
+package main;
+
 import java.util.Comparator;
 
 public class EmployeeHourlyWageCompare implements Comparator<Employee> {

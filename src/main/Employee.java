@@ -1,10 +1,11 @@
-public class Employee {
+package main;
+
+import java.io.Serializable;
+
+public class Employee implements Serializable {
     private int employeeNumber;
     private String firstName, lastName;
     private double hourlyWage;
-
-    public Employee() {
-    }
 
     public Employee(int employeeNumber, String firstName, String lastName, double hourlyWage) {
         this.employeeNumber = employeeNumber;
