@@ -2,63 +2,19 @@ package main;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class TestDriver {
     public static void main(String[] args) throws IOException {
         ArrayList<String> stringList = new ArrayList<>();
-        ArrayList<Employee> list = new ArrayList<>();
-        int counter = 0;
-        try {
-            //READS THE INPUT FILE employees.txt AND IMPORT IT TO ARRAYLIST - PART 1
-            File readFile = new File("employees.txt");
-            Scanner textRead = new Scanner(readFile);
-            while (textRead.hasNext()) {
-                stringList.add(textRead.next());
-            }
-            textRead.close();
+        ArrayList<Employee> employeeList = new ArrayList<>();
 
-            counter = 0;
-            while (counter < stringList.size()) {
-                String string = stringList.get(counter);
-                String[] parts = string.split(",");
-                list.add(new Employee(Integer.parseInt(parts[0]), parts[1], parts[2], Double.parseDouble(parts[3])));
-                counter++;
-            }
-            counter = 0;
-        } catch (InputMismatchException e) {
-            System.out.println("employees.txt not available");
-        }
+        //START THE PROGRAM BY PROCESSING THE TWO INPUT FILES PRIOR TO SHOW THE MENU
+        new ReadInputFiles(stringList,employeeList);
 
-        try {
-            //READS THE INPUT FILE employeesHours.txt AND IMPORT IT TO ARRAYLIST - PART 2
-            File readFile = new File("employeesHours.txt");
-            Scanner textRead = new Scanner(readFile);
-            stringList.clear();
-            while (textRead.hasNext()) {
-                stringList.add(textRead.next());
-            }
-
-            for (int i = 0; i < list.size(); i++) {
-                for (int y = 0; y < stringList.size(); y++) {
-                    String string = stringList.get(y);
-                    String[] parts = string.split(",|:");
-                    if (list.get(i).getEmployeeNumber() == Integer.parseInt(parts[0])) {
-                        list.get(i).getTimestamp().addHour(Integer.parseInt(parts[1]));
-                        list.get(i).getTimestamp().addMin(Integer.parseInt(parts[2]));
-                        list.get(i).getTimestamp().addSec(Integer.parseInt(parts[3]));
-                    }
-                }
-            }
-
-        } catch (InputMismatchException e) {
-            System.out.println("employeesHours.txt not available");
-        }
-
+        //USER MENU TO SELECT WHAT FILE TO BE OUTPUTTED / EXHIBITED ON SCREEN
         Scanner input = new Scanner(System.in);
-        counter = 0;
+        int counter = 0;
         while (counter >= 0 && counter <= 4) {
             System.out.println("\nType 1 to generate the employeeNumberOrder.txt\n" +
                     "Type 2 to generate the nameOrder.txt\n" +
@@ -67,118 +23,44 @@ public class TestDriver {
                     "Type 5 to EXIT the program.");
 
             counter = input.nextInt();
+            String outputFile;
             switch (counter) {
                 case 1:
-                    try {
-                        //OUTPUTS THE DATA GENERATING THE FILE employeeNumberOrder.txt
-                        FileOutputStream writeFile = new FileOutputStream("employeeNumberOrder.txt");
-                        PrintWriter output = new PrintWriter(writeFile);
-
-                        output.printf("Emp # Last Name First Name Time Worked Hourly Wage Pay\n");
-                        output.flush();
-                        EmployeeNumberCompare numberCompare = new EmployeeNumberCompare();
-                        Collections.sort(list, numberCompare);
-                        for (Employee employee : list) {
-                            output.printf(employee.getEmployeeNumber() + " " +
-                                    employee.getFirstName() + " " +
-                                    employee.getLastName() + " " +
-                                    String.format("%02d", employee.getTimestamp().getHour()) + ":" + String.format("%02d", employee.getTimestamp().getMin()) + ":" + String.format("%02d", employee.getTimestamp().getSec()) + " " +
-                                    "$" + String.format("%.2f", employee.getHourlyWage()) + " " +
-                                    //THIS LINE BELLOW CALCULATES THE TOTAL PAY (FIXED ALREADY!)
-                                    String.format("%.2f",employee.getTotalWage()) + "\n");
-
-                        }
-
-                        //SUMS THE TOTAL TIME WORKED AND TOTAL PAYS
-                        TimeStamp totalTimestamp = new TimeStamp(0, 0, 0);
-                        double totalPay = 0;
-                        for (int i = 0; i < list.size(); i++) {
-                            totalTimestamp.addHour(list.get(i).getTimestamp().getHour());
-                            totalTimestamp.addMin(list.get(i).getTimestamp().getMin());
-                            totalTimestamp.addSec(list.get(i).getTimestamp().getSec());
-                            totalPay += list.get(i).getTotalWage();
-                        }
-
-                        output.printf("Total time worked: " + String.format("%02d", totalTimestamp.getHour()) + ":" + String.format("%02d", totalTimestamp.getMin()) + ":" + String.format("%02d", totalTimestamp.getSec()) + "\n");
-                        output.flush();
-                        output.printf("Total pay: " + "$" + String.format("%.2f", totalPay));
-                        output.flush();
-                        writeFile.close();
-                    } catch (InputMismatchException e) {
-                        System.out.println("Could not generate the file employeeNumberOrder.txt");
-                    }
+                    outputFile = "employeeNumberOrder.txt";
+                    //OUTPUTS THE DATA GENERATING THE FILE "employeeNumberOrder.txt"
+                    new GenerateOutputFiles(outputFile,employeeList);
 
                     //READS THE FILE AND OUTPUTS IT IN RUN CONSOLE
-                    try {
-                        File file = new File("employeeNumberOrder.txt");
-                        Scanner textRead = new Scanner(file);
+                    new ReadFileToRuntime(outputFile);
 
-                        while (textRead.hasNext()) {
-                            System.out.println((String) textRead.nextLine());
-                        }
-                        textRead.close();
-
-                        counter = 0;
-                        break;
-                    } catch (IOException e) {
-                        System.out.println("Error reading the file employeeNumberOrder.txt");
-                    }
-
+                    break;
                 case 2:
-                    //NEED TO WRITE CODE TO GENERATE nameOrder.txt HERE (REPLICATE THE "GENERATE CODE" FROM CASE 1 AND ADJUST IT TO ORDER BY LAST NAME
+                    outputFile = "nameOrder.txt";
+                    //OUTPUTS THE DATA GENERATING THE FILE "nameOrder.txt"
+                    new GenerateOutputFiles(outputFile,employeeList);
 
                     //READS THE FILE AND OUTPUTS IT IN RUN CONSOLE
-                    try {
-                        File file = new File("nameOrder.txt");
-                        Scanner textRead = new Scanner(file);
+                    new ReadFileToRuntime(outputFile);
 
-                        while (textRead.hasNext()) {
-                            System.out.println((String) textRead.nextLine());
-                        }
-                        textRead.close();
-
-                        counter = 0;
-                        break;
-                    } catch (IOException e) {
-                        System.out.println("Error reading the file nameOrder.txt");
-                    }
+                    break;
                 case 3:
-                    //NEED TO WRITE CODE TO GENERATE timeOrder.txt HERE (REPLICATE THE "GENERATE CODE" FROM CASE 1 AND ADJUST IT TO ORDER BY HOURLY WAGE
+                    outputFile = "timeOrder.txt";
+                    //OUTPUTS THE DATA GENERATING THE FILE "timeOrder.txt"
+                    new GenerateOutputFiles(outputFile,employeeList);
 
                     //READS THE FILE AND OUTPUTS IT IN RUN CONSOLE
-                    try {
-                        File file = new File("timeOrder.txt");
-                        Scanner textRead = new Scanner(file);
+                    new ReadFileToRuntime(outputFile);
 
-                        while (textRead.hasNext()) {
-                            System.out.println((String) textRead.nextLine());
-                        }
-                        textRead.close();
-
-                        counter = 0;
-                        break;
-                    } catch (IOException e) {
-                        System.out.println("Error reading the file timeOrder.txt");
-                    }
+                    break;
                 case 4:
-                    //NEED TO WRITE CODE TO GENERATE timeOrder.txt HERE (REPLICATE THE "GENERATE CODE" FROM CASE 1 AND ADJUST IT TO ORDER BY TOTAL EMPLOYEE WAGE
-                    //FOR THIS ONE I'LL BE CREATING ANOTHER CLASS TO BE CALLED TO SORT IT OUT: EmployeeTotalWageCompare
+                    outputFile = "payOrder.txt";
+                    //OUTPUTS THE DATA GENERATING THE FILE "payOrder.txt"
+                    new GenerateOutputFiles(outputFile,employeeList);
 
                     //READS THE FILE AND OUTPUTS IT IN RUN CONSOLE
-                    try {
-                        File file = new File("payOrder.txt");
-                        Scanner textRead = new Scanner(file);
+                    new ReadFileToRuntime(outputFile);
 
-                        while (textRead.hasNext()) {
-                            System.out.println((String) textRead.nextLine());
-                        }
-                        textRead.close();
-
-                        counter = 0;
-                        break;
-                    } catch (IOException e) {
-                        System.out.println("Error reading the file payOrder.txt");
-                    }
+                    break;
                 case 5:
                     break;
                 default:
@@ -189,73 +71,3 @@ public class TestDriver {
         }
     }
 }
-
-
-//        ArrayList<Employee> list = new ArrayList<Employee>();
-//        list.add(new Employee(111111,"Aaaaaa","Bbbbbb",10.5));
-//        list.add(new Employee(333333,"Zzzzzz","Yyyyyy",5.0));
-//        list.add(new Employee(222222,"Cccccc","Dddddd",5.0));
-//        list.add(new Employee(555555,"Mmmmmm","Nnnnnn",15.0));
-
-//        new GenerateFileCompare(list);
-//new ReadFile("test.txt");
-
-        /* OUTPUTS THE DATA GENERATING A FILE
-        FileOutputStream file = new FileOutputStream("test.txt");
-        ObjectOutputStream output = new ObjectOutputStream(file);
-
-        output.writeChars("Sort by Employee Number:");
-        EmployeeNumberCompare numberCompare = new EmployeeNumberCompare();
-        Collections.sort(list, numberCompare);
-        for (Employee employee: list)
-            output.writeObject(employee.getEmployeeNumber() + " " +
-                               employee.getFirstName() + " " +
-                               employee.getLastName() + " " +
-                               employee.getHourlyWage());
-
-        output.writeChars("\nSort by Employee Last Name:");
-        EmployeeLastNameCompare lastNameCompare = new EmployeeLastNameCompare();
-        Collections.sort(list, lastNameCompare);
-        for (Employee employee: list)
-            output.writeObject(employee.getEmployeeNumber() + " " +
-                    employee.getFirstName() + " " +
-                    employee.getLastName() + " " +
-                    employee.getHourlyWage());
-
-        output.writeChars("\nSort by Hourly Wage:");
-        EmployeeHourlyWageCompare hourlyWageCompare = new EmployeeHourlyWageCompare();
-        Collections.sort(list, hourlyWageCompare);
-        for (Employee employee: list)
-            output.writeObject(employee.getEmployeeNumber() + " " +
-                    employee.getFirstName() + " " +
-                    employee.getLastName() + " " +
-                    employee.getHourlyWage());
-         */
-
-// OUTPUTS THE DATA WITHOUT GENERATING A FILE
-//        System.out.println("Sort by Employee Number:");
-//        EmployeeNumberCompare numberCompare = new EmployeeNumberCompare();
-//        Collections.sort(list, numberCompare);
-//        for (Employee employee: list)
-//            System.out.println(employee.getEmployeeNumber() + " " +
-//                               employee.getFirstName() + " " +
-//                               employee.getLastName() + " " +
-//                               employee.getHourlyWage());
-//
-//        System.out.println("\nSort by Employee Last Name:");
-//        EmployeeLastNameCompare lastNameCompare = new EmployeeLastNameCompare();
-//        Collections.sort(list, lastNameCompare);
-//        for (Employee employee: list)
-//            System.out.println(employee.getEmployeeNumber() + " " +
-//                    employee.getFirstName() + " " +
-//                    employee.getLastName() + " " +
-//                    employee.getHourlyWage());
-//
-//        System.out.println("\nSort by Hourly Wage:");
-//        EmployeeHourlyWageCompare hourlyWageCompare = new EmployeeHourlyWageCompare();
-//        Collections.sort(list, hourlyWageCompare);
-//        for (Employee employee: list)
-//            System.out.println(employee.getEmployeeNumber() + " " +
-//                    employee.getFirstName() + " " +
-//                    employee.getLastName() + " " +
-//                    employee.getHourlyWage());

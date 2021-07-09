@@ -1,18 +1,16 @@
 package main;
 
-import java.io.Serializable;
-
-public class Employee implements Serializable {
+public class Employee {
     private int employeeNumber;
     private String firstName, lastName;
     private double hourlyWage;
     private TimeStamp timestamp = new TimeStamp(0,0,0);
     private double totalWage;
 
-    public Employee(int employeeNumber, String firstName, String lastName, double hourlyWage) {
+    public Employee(int employeeNumber, String lastName, String firstName, double hourlyWage) {
         this.employeeNumber = employeeNumber;
-        this.firstName = firstName;
         this.lastName = lastName;
+        this.firstName = firstName;
         this.hourlyWage = hourlyWage;
     }
 
