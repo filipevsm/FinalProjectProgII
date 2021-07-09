@@ -70,12 +70,12 @@ public class TestDriver {
             switch (counter) {
                 case 1:
                     try {
-                        //OUTPUTS THE DATA GENERATING A FILE - THIS ONE IS NOT OUTPUTTING THE FILE AS IT SHOULD...
-                        FileOutputStream writeFile = new FileOutputStream("test.txt");
-//                        ObjectOutputStream output = new ObjectOutputStream(writeFile);
+                        //OUTPUTS THE DATA GENERATING THE FILE employeeNumberOrder.txt
+                        FileOutputStream writeFile = new FileOutputStream("employeeNumberOrder.txt");
                         PrintWriter output = new PrintWriter(writeFile);
 
                         output.printf("Emp # Last Name First Name Time Worked Hourly Wage Pay\n");
+                        output.flush();
                         EmployeeNumberCompare numberCompare = new EmployeeNumberCompare();
                         Collections.sort(list, numberCompare);
                         for (Employee employee : list) {
@@ -84,7 +84,7 @@ public class TestDriver {
                                     employee.getLastName() + " " +
                                     String.format("%02d", employee.getTimestamp().getHour()) + ":" + String.format("%02d", employee.getTimestamp().getMin()) + ":" + String.format("%02d", employee.getTimestamp().getSec()) + " " +
                                     "$" + String.format("%.2f", employee.getHourlyWage()) + " " +
-                                    //THIS LINE BELLOW CALCULATES THE TOTAL PAY
+                                    //THIS LINE BELLOW CALCULATES THE TOTAL PAY (NEEDS TO BE FIXED)
                                     "$" + String.format("%.2f", ((employee.getHourlyWage() * employee.getTimestamp().getHour()) + (employee.getHourlyWage() * (employee.getTimestamp().getMin() * 0.02) + ((employee.getHourlyWage() * (employee.getTimestamp().getSec() * 0.02)) / 60)))) + "\n");
                         }
 
@@ -99,7 +99,9 @@ public class TestDriver {
                         }
 
                         output.printf("Total time worked: " + String.format("%02d", totalTimestamp.getHour()) + ":" + String.format("%02d", totalTimestamp.getMin()) + ":" + String.format("%02d", totalTimestamp.getSec()) + "\n");
+                        output.flush();
                         output.printf("Total pay: " + "$" + String.format("%.2f", totalPay));
+                        output.flush();
                         writeFile.close();
                     } catch (InputMismatchException e) {
                         System.out.println("Could not generate the file employeeNumberOrder.txt");
@@ -122,7 +124,7 @@ public class TestDriver {
                     }
 
                 case 2:
-                    //NEED TO WRITE CODE TO GENERATE nameOrder.txt HERE
+                    //NEED TO WRITE CODE TO GENERATE nameOrder.txt HERE (REPLICATE THE "GENERATE CODE" FROM CASE 1 AND ADJUST IT TO ORDER BY LAST NAME
 
                     //READS THE FILE AND OUTPUTS IT IN RUN CONSOLE
                     try {
@@ -140,7 +142,7 @@ public class TestDriver {
                         System.out.println("Error reading the file nameOrder.txt");
                     }
                 case 3:
-                    //NEED TO WRITE CODE TO GENERATE timeOrder.txt HERE
+                    //NEED TO WRITE CODE TO GENERATE timeOrder.txt HERE (REPLICATE THE "GENERATE CODE" FROM CASE 1 AND ADJUST IT TO ORDER BY HOURLY WAGE
 
                     //READS THE FILE AND OUTPUTS IT IN RUN CONSOLE
                     try {
@@ -158,7 +160,8 @@ public class TestDriver {
                         System.out.println("Error reading the file timeOrder.txt");
                     }
                 case 4:
-                    //NEED TO WRITE CODE TO GENERATE payOrder.txt HERE
+                    //NEED TO WRITE CODE TO GENERATE timeOrder.txt HERE (REPLICATE THE "GENERATE CODE" FROM CASE 1 AND ADJUST IT TO ORDER BY TOTAL EMPLOYEE WAGE
+                    //FOR THIS ONE I'LL BE CREATING ANOTHER CLASS TO BE CALLED TO SORT IT OUT: EmployeeTotalWageCompare
 
                     //READS THE FILE AND OUTPUTS IT IN RUN CONSOLE
                     try {
