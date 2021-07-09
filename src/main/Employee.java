@@ -7,6 +7,7 @@ public class Employee implements Serializable {
     private String firstName, lastName;
     private double hourlyWage;
     private TimeStamp timestamp = new TimeStamp(0,0,0);
+    private double totalWage;
 
     public Employee(int employeeNumber, String firstName, String lastName, double hourlyWage) {
         this.employeeNumber = employeeNumber;
@@ -53,5 +54,23 @@ public class Employee implements Serializable {
 
     public TimeStamp getTimestamp() {
         return timestamp;
+    }
+
+    //CALCULATES THE TOTAL WAGE OF THE EMPLOYEE BASED ON TOTAL HOUR, MINUTES AND SECONDS WORKED
+    public void setTotalWage() {
+        double hourWage, minWage, secWage;
+        hourWage = (this.timestamp.getHour() * this.hourlyWage);
+        minWage = ((this.timestamp.getMin() / 60) * this.hourlyWage);
+        secWage = (((this.timestamp.getSec() / 60) / 60) * this.hourlyWage);
+        this.totalWage = (hourWage + minWage + secWage);
+    }
+
+    public double getTotalWage() {
+        setTotalWage();
+        return totalWage;
+    }
+
+    public void addTotalWage(double totalWage) {
+        this.totalWage += totalWage;
     }
 }

@@ -84,8 +84,9 @@ public class TestDriver {
                                     employee.getLastName() + " " +
                                     String.format("%02d", employee.getTimestamp().getHour()) + ":" + String.format("%02d", employee.getTimestamp().getMin()) + ":" + String.format("%02d", employee.getTimestamp().getSec()) + " " +
                                     "$" + String.format("%.2f", employee.getHourlyWage()) + " " +
-                                    //THIS LINE BELLOW CALCULATES THE TOTAL PAY (NEEDS TO BE FIXED)
-                                    "$" + String.format("%.2f", ((employee.getHourlyWage() * employee.getTimestamp().getHour()) + (employee.getHourlyWage() * (employee.getTimestamp().getMin() * 0.02) + ((employee.getHourlyWage() * (employee.getTimestamp().getSec() * 0.02)) / 60)))) + "\n");
+                                    //THIS LINE BELLOW CALCULATES THE TOTAL PAY (NEEDS TO BE FIXED?)
+                                    String.format("%.2f",employee.getTotalWage()) + "\n");
+
                         }
 
                         //SUMS THE TOTAL TIME WORKED AND TOTAL PAYS
@@ -95,7 +96,7 @@ public class TestDriver {
                             totalTimestamp.addHour(list.get(i).getTimestamp().getHour());
                             totalTimestamp.addMin(list.get(i).getTimestamp().getMin());
                             totalTimestamp.addSec(list.get(i).getTimestamp().getSec());
-                            totalPay += ((list.get(i).getHourlyWage() * list.get(i).getTimestamp().getHour()) + (list.get(i).getHourlyWage() * (list.get(i).getTimestamp().getMin() * 0.02) + ((list.get(i).getHourlyWage() * (list.get(i).getTimestamp().getSec() * 0.02)) / 60)));
+                            totalPay += list.get(i).getTotalWage();
                         }
 
                         output.printf("Total time worked: " + String.format("%02d", totalTimestamp.getHour()) + ":" + String.format("%02d", totalTimestamp.getMin()) + ":" + String.format("%02d", totalTimestamp.getSec()) + "\n");
