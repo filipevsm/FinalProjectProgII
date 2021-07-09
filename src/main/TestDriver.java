@@ -84,7 +84,7 @@ public class TestDriver {
                                     employee.getLastName() + " " +
                                     String.format("%02d", employee.getTimestamp().getHour()) + ":" + String.format("%02d", employee.getTimestamp().getMin()) + ":" + String.format("%02d", employee.getTimestamp().getSec()) + " " +
                                     "$" + String.format("%.2f", employee.getHourlyWage()) + " " +
-                                    //THIS LINE BELLOW CALCULATES THE TOTAL PAY (NEEDS TO BE FIXED?)
+                                    //THIS LINE BELLOW CALCULATES THE TOTAL PAY (FIXED ALREADY!)
                                     String.format("%.2f",employee.getTotalWage()) + "\n");
 
                         }

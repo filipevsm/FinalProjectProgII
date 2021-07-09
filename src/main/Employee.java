@@ -60,8 +60,8 @@ public class Employee implements Serializable {
     public void setTotalWage() {
         double hourWage, minWage, secWage;
         hourWage = (this.timestamp.getHour() * this.hourlyWage);
-        minWage = ((this.timestamp.getMin() / 60) * this.hourlyWage);
-        secWage = (((this.timestamp.getSec() / 60) / 60) * this.hourlyWage);
+        minWage = (((double) this.timestamp.getMin() / 60) * this.hourlyWage);
+        secWage = ((((double) this.timestamp.getSec() / 60) / 60) * this.hourlyWage);
         this.totalWage = (hourWage + minWage + secWage);
     }
 
