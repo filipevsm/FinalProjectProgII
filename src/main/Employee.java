@@ -6,6 +6,7 @@ public class Employee implements Serializable {
     private int employeeNumber;
     private String firstName, lastName;
     private double hourlyWage;
+    private TimeStamp timestamp = new TimeStamp(0,0,0);
 
     public Employee(int employeeNumber, String firstName, String lastName, double hourlyWage) {
         this.employeeNumber = employeeNumber;
@@ -44,5 +45,13 @@ public class Employee implements Serializable {
 
     public double getHourlyWage() {
         return hourlyWage;
+    }
+
+    public void setTimestamp(TimeStamp timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    public TimeStamp getTimestamp() {
+        return timestamp;
     }
 }

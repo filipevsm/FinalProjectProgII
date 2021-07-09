@@ -10,7 +10,7 @@ import java.util.Collections;
 public class GenerateFileCompare implements Serializable {
     public GenerateFileCompare(ArrayList<Employee> list) {
         try {
-            FileOutputStream file = new FileOutputStream("FINALFILE.txt");
+            FileOutputStream file = new FileOutputStream("test.txt");
             ObjectOutputStream output = new ObjectOutputStream(file);
 
             output.writeChars("Sort by Employee Number:");
