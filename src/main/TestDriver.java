@@ -38,41 +38,62 @@ public class TestDriver {
             switch (counter) {
                 case 1:
                     outputFile = "employeeNumberOrder.txt";
-                    //OUTPUTS THE DATA GENERATING THE FILE "employeeNumberOrder.txt"
                     /**
-                     * Outputs the appropriate data to generate employeeNumberOrder.txt
+                     * Outputs the appropriate data to generate "employeeNumberOrder.txt".
                      * @see EmployeeNumberCompare.java
                      */
                     new GenerateOutputFiles(outputFile,employeeList);
 
-                    //READS THE FILE AND OUTPUTS IT IN RUN CONSOLE
+                    /**
+                     * Reads the file that was just generated above and outputs it to the console.
+                     * @see GenerateOutputFiles.java
+                     */
                     new ReadFileToRuntime(outputFile);
 
                     break;
                 case 2:
                     outputFile = "nameOrder.txt";
-                    //OUTPUTS THE DATA GENERATING THE FILE "nameOrder.txt"
-                    new GenerateOutputFiles(outputFile,employeeList);
 
-                    //READS THE FILE AND OUTPUTS IT IN RUN CONSOLE
+                    /**
+                     * Outputs the appropriate data to generate "nameOrder.txt".
+                     * @see EmployeeLastNameCompare.java
+                     */
+                    new GenerateOutputFiles(outputFile,employeeList);
+                    /**
+                     *  Reads the file that was just generate above and outputs it to the console.
+                     * @see GenerateOutputFiles.java
+                     */
                     new ReadFileToRuntime(outputFile);
 
                     break;
                 case 3:
                     outputFile = "timeOrder.txt";
-                    //OUTPUTS THE DATA GENERATING THE FILE "timeOrder.txt"
+
+                    /**
+                     * Outputs the appropriate data to generate "timeOrder.txt".
+                     * @see EmployeeTimeCompare.java
+                     */
                     new GenerateOutputFiles(outputFile,employeeList);
 
-                    //READS THE FILE AND OUTPUTS IT IN RUN CONSOLE
+                    /**
+                     *  Reads the file that was just generate above and outputs it to the console.
+                     * @see GenerateOutputFiles.java
+                     */
                     new ReadFileToRuntime(outputFile);
 
                     break;
                 case 4:
                     outputFile = "payOrder.txt";
-                    //OUTPUTS THE DATA GENERATING THE FILE "payOrder.txt"
+                    /**
+                     * Outputs the appropriate data to generate "payOrder.txt".
+                     * @see EmployeeTotalWageCompare.java
+                     */
                     new GenerateOutputFiles(outputFile,employeeList);
 
-                    //READS THE FILE AND OUTPUTS IT IN RUN CONSOLE
+                    /**
+                     *  Reads the file that was just generate above and outputs it to the console.
+                     * @see GenerateOutputFiles.java
+                     */
                     new ReadFileToRuntime(outputFile);
 
                     break;
