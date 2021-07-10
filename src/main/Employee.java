@@ -1,9 +1,12 @@
 package main;
 
+import java.io.Serializable;
+import java.util.InputMismatchException;
+
 /**
  *<p> I am testing javadocs HTML tags </p>
  */
-public class Employee {
+public class Employee implements Serializable {
     private int employeeNumber;
     private String firstName, lastName;
     private double hourlyWage;
@@ -11,17 +14,23 @@ public class Employee {
     private double totalWage;
 
     /**
-     * This is the constructor for Employee, which will be intialized for each employee read.
+     * This is the constructor for Employee, which will be initialized for each employee read.
      * @param employeeNumber
      * @param lastName
      * @param firstName
      * @param hourlyWage
      */
     public Employee(int employeeNumber, String lastName, String firstName, double hourlyWage) {
-        this.employeeNumber = employeeNumber;
-        this.lastName = lastName;
-        this.firstName = firstName;
-        this.hourlyWage = hourlyWage;
+        try {
+            this.employeeNumber = employeeNumber;
+            this.lastName = lastName;
+            this.firstName = firstName;
+            this.hourlyWage = hourlyWage;
+        }
+        catch (InputMismatchException e) {
+            System.out.println("Please try again. The parameters required to initialize Employee are employeeNumber, lastName, firstName, hourlyWage");
+        }
+
     }
 
     public void setEmployeeNumber(int employeeNumber) {
@@ -66,7 +75,7 @@ public class Employee {
     /**
      *
      *  Calculates the total wage of the employee based on total hours, minutes and seconds worked.
-     *  @see EmployeeTotalWageCompare.java
+     *  @see EmployeeTotalWageCompare
      */
     public void setTotalWage() {
         double hourWage, minWage, secWage;
@@ -80,6 +89,7 @@ public class Employee {
         setTotalWage();
         return totalWage;
     }
+
 
     public void addTotalWage(double totalWage) {
         this.totalWage += totalWage;
