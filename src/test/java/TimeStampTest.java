@@ -16,6 +16,12 @@ public class TimeStampTest {
         TimeStamp t = new TimeStamp(1,1,1);
         assertEquals(1, t.getHour());
     }
+    @Test
+    public void testAddHour() {
+        TimeStamp t = new TimeStamp(1,1,1);
+        t.addHour(1);
+        assertEquals(2, t.getHour());
+    }
 
     @Test
     public void testSetSec() {
@@ -28,6 +34,12 @@ public class TimeStampTest {
     public void testGetSec() {
         TimeStamp t = new TimeStamp(1,1,1);
         assertEquals(1, t.getSec());
+    }
+    @Test
+    public void testAddSec() {
+        TimeStamp t = new TimeStamp(1,1,1);
+        t.addSec(1);
+        assertEquals(2, t.getSec());
     }
 
     @Test
@@ -42,23 +54,12 @@ public class TimeStampTest {
         TimeStamp t = new TimeStamp(1,1,1);
         assertEquals(1, t.getHour());
     }
-    // done up to here
     @Test
     public void testAddMin() {
         TimeStamp t = new TimeStamp(1,1,1);
-        t.setHour(1);
-        assertEquals(1, t.getHour());
+        t.addMin(1);
+        assertEquals(2, t.getMin());
     }
-    @Test
-    public void testAddHour() {
-        TimeStamp t = new TimeStamp(1,1,1);
-        t.setHour(1);
-        assertEquals(1, t.getHour());
-    }
-    @Test
-    public void testAddSec() {
-        TimeStamp t = new TimeStamp(1,1,1);
-        t.setHour(1);
-        assertEquals(1, t.getHour());
-    }
+
+
 }
