@@ -5,11 +5,14 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.InputMismatchException;
 
-/**
- *
- */
 
 public class GenerateOutputFiles {
+    /**
+     * This method is responsible for generating the final output file, the parameters passed are determined by
+     * @param fileToBeGenerated
+     * @param list
+     * @throws IOException
+     */
     public GenerateOutputFiles(String fileToBeGenerated, ArrayList<Employee> list) throws IOException {
         try {
             FileOutputStream writeFile = new FileOutputStream(fileToBeGenerated);
@@ -20,7 +23,9 @@ public class GenerateOutputFiles {
             switch (fileToBeGenerated) {
                 case "employeeNumberOrder.txt":
                     try {
-                        //OUTPUTS THE DATA GENERATING THE FILE employeeNumberOrder.txt
+                        /**
+                         * This try block will attempt to generate the file "employeeNumberOrder.txt".
+                         */
                         EmployeeNumberCompare numberCompare = new EmployeeNumberCompare();
                         Collections.sort(list, numberCompare);
                     } catch (
@@ -30,7 +35,9 @@ public class GenerateOutputFiles {
                     break;
                 case "nameOrder.txt":
                     try {
-                        //OUTPUTS THE DATA GENERATING THE FILE "nameOrder.txt"
+                        /**
+                         * This try block will attempt to generate the file "nameOrder.txt".
+                         */
                         EmployeeLastNameCompare lastNameCompare = new EmployeeLastNameCompare();
                         Collections.sort(list, lastNameCompare);
                     } catch (
@@ -40,7 +47,9 @@ public class GenerateOutputFiles {
                     break;
                 case "timeOrder.txt":
                     try {
-                        //OUTPUTS THE DATA GENERATING THE FILE "timeOrder.txt"
+                        /**
+                         * This try block will attempt to generate the file "timeOrder.txt".
+                         */
                         EmployeeTimeCompare hourlyWageCompare = new EmployeeTimeCompare();
                         Collections.sort(list, hourlyWageCompare);
                     } catch (
@@ -50,7 +59,9 @@ public class GenerateOutputFiles {
                     break;
                 case "payOrder.txt":
                     try {
-                        //OUTPUTS THE DATA GENERATING THE FILE "payOrder.txt"
+                        /**
+                         * This try block will attempt to generate the file "payOrder.txt".
+                         */
                         EmployeeTotalWageCompare totalWageCompare = new EmployeeTotalWageCompare();
                         Collections.sort(list, totalWageCompare);
                     } catch (
@@ -60,7 +71,9 @@ public class GenerateOutputFiles {
                     break;
             }
 
-            //WRITES THE SORTED LIST TO THE RESPECTIVE FILE
+            /**
+             * This block will write the sorted list to the respective file.
+             */
             for (Employee employee : list) {
                 output.printf(employee.getEmployeeNumber() + " " +
                         employee.getFirstName() + " " +
@@ -71,7 +84,9 @@ public class GenerateOutputFiles {
                         "$" + String.format("%.2f", employee.getTotalWage()) + "\n");
             }
 
-            //SUMS THE TOTAL TIME WORKED AND TOTAL PAYS
+            /**
+             * totalTimeStamp sums the total time worked and total pay.
+             */
             TimeStamp totalTimestamp = new TimeStamp(0, 0, 0);
             double totalPay = 0;
             for (int i = 0; i < list.size(); i++) {
