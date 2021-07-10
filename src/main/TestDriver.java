@@ -18,7 +18,7 @@ public class TestDriver {
          * to showing the menu.
          * @see ReadInputFiles.java
          */
-        new ReadInputFiles(stringList,employeeList);
+        new ReadInputFiles(stringList, employeeList);
 
 
         /**
@@ -43,7 +43,7 @@ public class TestDriver {
                      * Outputs the appropriate data to generate "employeeNumberOrder.txt".
                      * @see EmployeeNumberCompare.java
                      */
-                    new GenerateOutputFiles(outputFile,employeeList);
+                    new GenerateOutputFiles(outputFile, employeeList);
 
                     /**
                      * Reads the file that was just generated above and outputs it to the console.
@@ -59,7 +59,7 @@ public class TestDriver {
                      * Outputs the appropriate data to generate "nameOrder.txt".
                      * @see EmployeeLastNameCompare.java
                      */
-                    new GenerateOutputFiles(outputFile,employeeList);
+                    new GenerateOutputFiles(outputFile, employeeList);
                     /**
                      *  Reads the file that was just generate above and outputs it to the console.
                      * @see GenerateOutputFiles.java
@@ -74,7 +74,7 @@ public class TestDriver {
                      * Outputs the appropriate data to generate "timeOrder.txt".
                      * @see EmployeeTimeCompare.java
                      */
-                    new GenerateOutputFiles(outputFile,employeeList);
+                    new GenerateOutputFiles(outputFile, employeeList);
 
                     /**
                      *  Reads the file that was just generate above and outputs it to the console.
@@ -89,7 +89,7 @@ public class TestDriver {
                      * Outputs the appropriate data to generate "payOrder.txt".
                      * @see EmployeeTotalWageCompare.java
                      */
-                    new GenerateOutputFiles(outputFile,employeeList);
+                    new GenerateOutputFiles(outputFile, employeeList);
 
                     /**
                      *  Reads the file that was just generate above and outputs it to the console.

@@ -5,17 +5,18 @@ import java.io.Serializable;
 import java.util.InputMismatchException;
 
 /**
- *<p> I am testing javadocs HTML tags </p>
+ * <p> I am testing javadocs HTML tags </p>
  */
 public class Employee implements Serializable {
     private int employeeNumber;
     private String firstName, lastName;
     private double hourlyWage;
-    private TimeStamp timestamp = new TimeStamp(0,0,0);
+    private TimeStamp timestamp = new TimeStamp(0, 0, 0);
     private double totalWage;
 
     /**
      * This is the constructor for Employee, which will be initialized for each employee read.
+     *
      * @param employeeNumber
      * @param lastName
      * @param firstName
@@ -27,8 +28,7 @@ public class Employee implements Serializable {
             this.lastName = lastName;
             this.firstName = firstName;
             this.hourlyWage = hourlyWage;
-        }
-        catch (InputMismatchException e) {
+        } catch (InputMismatchException e) {
             System.out.println("Please try again. The parameters required to initialize Employee are employeeNumber, lastName, firstName, hourlyWage");
         }
 
@@ -73,10 +73,11 @@ public class Employee implements Serializable {
     public TimeStamp getTimestamp() {
         return timestamp;
     }
+
     /**
+     * Calculates the total wage of the employee based on total hours, minutes and seconds worked.
      *
-     *  Calculates the total wage of the employee based on total hours, minutes and seconds worked.
-     *  @see EmployeeTotalWageCompare
+     * @see EmployeeTotalWageCompare
      */
     public void setTotalWage() {
         double hourWage, minWage, secWage;
@@ -85,8 +86,7 @@ public class Employee implements Serializable {
             minWage = (((double) this.timestamp.getMin() / 60) * this.hourlyWage);
             secWage = ((((double) this.timestamp.getSec() / 60) / 60) * this.hourlyWage);
             this.totalWage = (hourWage + minWage + secWage);
-        }
-        catch (InputMismatchException e){
+        } catch (InputMismatchException e) {
             System.out.println("Invalid input.");
         }
     }
