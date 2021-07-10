@@ -4,9 +4,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
 
-/**
- *
- */
 public class ReadFileToRuntime {
     /**
      * Reads and displays the requested output file from the menu

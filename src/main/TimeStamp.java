@@ -1,5 +1,4 @@
 package main;
-
 /**
  * TimeStamp object is responsible for interpreting and storing the amount of time each employee worked.
  */
