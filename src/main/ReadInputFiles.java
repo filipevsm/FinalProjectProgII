@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+/**
+ *
+ */
 public class ReadInputFiles {
     public ReadInputFiles(ArrayList<String> stringList, ArrayList<Employee> list) {
         int counter = 0;

@@ -5,6 +5,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.InputMismatchException;
 
+/**
+ *
+ */
+
 public class GenerateOutputFiles {
     public GenerateOutputFiles(String fileToBeGenerated, ArrayList<Employee> list) throws IOException {
         try {

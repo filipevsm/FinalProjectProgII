@@ -3,17 +3,27 @@ package main;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
-// testing commit
+
+/**
+ * This is the driver class.
+ */
+
 
 public class TestDriver {
     public static void main(String[] args) throws IOException {
         ArrayList<String> stringList = new ArrayList<>();
         ArrayList<Employee> employeeList = new ArrayList<>();
 
-        //START THE PROGRAM BY PROCESSING THE TWO INPUT FILES PRIOR TO SHOW THE MENU
+        /**
+         * Program starts by processing the two input files (employees.txt, employeesHours.txt) prior
+         * to showing the menu.
+         */
         new ReadInputFiles(stringList,employeeList);
 
-        //USER MENU TO SELECT WHAT FILE TO BE OUTPUTTED / EXHIBITED ON SCREEN
+
+        /**
+         * Generates a menu for the user to select which file is to be displayed.
+         */
         Scanner input = new Scanner(System.in);
         int counter = 0;
         while (counter >= 0 && counter <= 4) {
@@ -29,6 +39,10 @@ public class TestDriver {
                 case 1:
                     outputFile = "employeeNumberOrder.txt";
                     //OUTPUTS THE DATA GENERATING THE FILE "employeeNumberOrder.txt"
+                    /**
+                     * Outputs the appropriate data to generate employeeNumberOrder.txt
+                     * @see EmployeeNumberCompare.java
+                     */
                     new GenerateOutputFiles(outputFile,employeeList);
 
                     //READS THE FILE AND OUTPUTS IT IN RUN CONSOLE

@@ -1,8 +1,17 @@
 package main;
 
+/**
+ *
+ */
 public class TimeStamp {
     private int hour, min, sec;
 
+    /**
+     * Constructor for TimeStamp object, which is created for each Employee object.
+     * @param hour
+     * @param min
+     * @param sec
+     */
     public TimeStamp(int hour, int min, int sec){
         this.hour = hour;
         this.min = min;
@@ -29,6 +38,10 @@ public class TimeStamp {
         return min;
     }
 
+    /**
+     * addMin will increment hour if input received is > 60m.
+     * @param min
+     */
     public void addMin(int min) {
         this.min += min;
         if (this.min >= 60) {
@@ -45,6 +58,10 @@ public class TimeStamp {
         return sec;
     }
 
+    /**
+     * addSec will increment min if input received is > 60s.
+     * @param sec
+     */
     public void addSec(int sec) {
         this.sec += sec;
         if (this.sec >= 60) {
