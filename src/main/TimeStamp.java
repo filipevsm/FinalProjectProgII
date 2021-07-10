@@ -6,7 +6,7 @@ public class TimeStamp {
     private int hour, min, sec;
 
     /**
-     * Constructor for TimeStamp object, which is created for each Employee object.     *
+     * Constructor for TimeStamp object, which is created for each Employee object.
      * @param hour
      * @param min
      * @param sec

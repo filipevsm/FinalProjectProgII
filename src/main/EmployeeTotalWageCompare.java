@@ -2,10 +2,6 @@ package main;
 
 import java.util.Comparator;
 
-/**
- *
- */
-
 public class EmployeeTotalWageCompare implements Comparator<Employee> {
     /**
      * This method will sort two Employee objects by comparing their totalWage, which is calculated in the Employee class
