@@ -1,5 +1,8 @@
 package main;
 
+/**
+ *<p> I am testing javadocs HTML tags </p>
+ */
 public class Employee {
     private int employeeNumber;
     private String firstName, lastName;
@@ -7,6 +10,13 @@ public class Employee {
     private TimeStamp timestamp = new TimeStamp(0,0,0);
     private double totalWage;
 
+    /**
+     * This is the constructor for Employee, which will be intialized for each employee read.
+     * @param employeeNumber
+     * @param lastName
+     * @param firstName
+     * @param hourlyWage
+     */
     public Employee(int employeeNumber, String lastName, String firstName, double hourlyWage) {
         this.employeeNumber = employeeNumber;
         this.lastName = lastName;
@@ -53,8 +63,11 @@ public class Employee {
     public TimeStamp getTimestamp() {
         return timestamp;
     }
-
-    //CALCULATES THE TOTAL WAGE OF THE EMPLOYEE BASED ON TOTAL HOUR, MINUTES AND SECONDS WORKED
+    /**
+     *
+     *  Calculates the total wage of the employee based on total hours, minutes and seconds worked.
+     *  @see EmployeeTotalWageCompare.java
+     */
     public void setTotalWage() {
         double hourWage, minWage, secWage;
         hourWage = (this.timestamp.getHour() * this.hourlyWage);

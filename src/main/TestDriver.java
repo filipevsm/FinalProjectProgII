@@ -4,15 +4,27 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * This is the driver class.
+ */
+
 public class TestDriver {
     public static void main(String[] args) throws IOException {
         ArrayList<String> stringList = new ArrayList<>();
         ArrayList<Employee> employeeList = new ArrayList<>();
 
-        //START THE PROGRAM BY PROCESSING THE TWO INPUT FILES PRIOR TO SHOW THE MENU
+        /**
+         * Program starts by processing the two input files (employees.txt, employeesHours.txt) prior
+         * to showing the menu.
+         * @see ReadInputFiles.java
+         */
         new ReadInputFiles(stringList,employeeList);
 
-        //USER MENU TO SELECT WHAT FILE TO BE OUTPUTTED / EXHIBITED ON SCREEN
+
+        /**
+         * Generates a menu for the user to select which file is to be displayed.
+         * @see ReadFileToRuntime.java
+         */
         Scanner input = new Scanner(System.in);
         int counter = 0;
         while (counter >= 0 && counter <= 4) {
@@ -27,37 +39,62 @@ public class TestDriver {
             switch (counter) {
                 case 1:
                     outputFile = "employeeNumberOrder.txt";
-                    //OUTPUTS THE DATA GENERATING THE FILE "employeeNumberOrder.txt"
+                    /**
+                     * Outputs the appropriate data to generate "employeeNumberOrder.txt".
+                     * @see EmployeeNumberCompare.java
+                     */
                     new GenerateOutputFiles(outputFile,employeeList);
 
-                    //READS THE FILE AND OUTPUTS IT IN RUN CONSOLE
+                    /**
+                     * Reads the file that was just generated above and outputs it to the console.
+                     * @see GenerateOutputFiles.java
+                     */
                     new ReadFileToRuntime(outputFile);
 
                     break;
                 case 2:
                     outputFile = "nameOrder.txt";
-                    //OUTPUTS THE DATA GENERATING THE FILE "nameOrder.txt"
-                    new GenerateOutputFiles(outputFile,employeeList);
 
-                    //READS THE FILE AND OUTPUTS IT IN RUN CONSOLE
+                    /**
+                     * Outputs the appropriate data to generate "nameOrder.txt".
+                     * @see EmployeeLastNameCompare.java
+                     */
+                    new GenerateOutputFiles(outputFile,employeeList);
+                    /**
+                     *  Reads the file that was just generate above and outputs it to the console.
+                     * @see GenerateOutputFiles.java
+                     */
                     new ReadFileToRuntime(outputFile);
 
                     break;
                 case 3:
                     outputFile = "timeOrder.txt";
-                    //OUTPUTS THE DATA GENERATING THE FILE "timeOrder.txt"
+
+                    /**
+                     * Outputs the appropriate data to generate "timeOrder.txt".
+                     * @see EmployeeTimeCompare.java
+                     */
                     new GenerateOutputFiles(outputFile,employeeList);
 
-                    //READS THE FILE AND OUTPUTS IT IN RUN CONSOLE
+                    /**
+                     *  Reads the file that was just generate above and outputs it to the console.
+                     * @see GenerateOutputFiles.java
+                     */
                     new ReadFileToRuntime(outputFile);
 
                     break;
                 case 4:
                     outputFile = "payOrder.txt";
-                    //OUTPUTS THE DATA GENERATING THE FILE "payOrder.txt"
+                    /**
+                     * Outputs the appropriate data to generate "payOrder.txt".
+                     * @see EmployeeTotalWageCompare.java
+                     */
                     new GenerateOutputFiles(outputFile,employeeList);
 
-                    //READS THE FILE AND OUTPUTS IT IN RUN CONSOLE
+                    /**
+                     *  Reads the file that was just generate above and outputs it to the console.
+                     * @see GenerateOutputFiles.java
+                     */
                     new ReadFileToRuntime(outputFile);
 
                     break;
