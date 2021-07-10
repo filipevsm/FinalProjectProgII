@@ -1,5 +1,6 @@
 package main;
 import java.util.Comparator;
+import java.util.InputMismatchException;
 
 public class EmployeeLastNameCompare implements Comparator<Employee> {
     /**
@@ -9,7 +10,14 @@ public class EmployeeLastNameCompare implements Comparator<Employee> {
      * @param employee2
      * @return
      */
+
     public int compare(Employee employee1, Employee employee2) {
-        return employee1.getLastName().compareTo(employee2.getLastName());
+        try{
+            return employee1.getLastName().compareTo(employee2.getLastName());
+
+        }
+        catch (InputMismatchException e){
+            System.out.println("Invalid input");
+        }
     }
 }

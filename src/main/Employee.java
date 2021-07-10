@@ -1,5 +1,6 @@
 package main;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.InputMismatchException;
 
@@ -79,10 +80,15 @@ public class Employee implements Serializable {
      */
     public void setTotalWage() {
         double hourWage, minWage, secWage;
-        hourWage = (this.timestamp.getHour() * this.hourlyWage);
-        minWage = (((double) this.timestamp.getMin() / 60) * this.hourlyWage);
-        secWage = ((((double) this.timestamp.getSec() / 60) / 60) * this.hourlyWage);
-        this.totalWage = (hourWage + minWage + secWage);
+        try {
+            hourWage = (this.timestamp.getHour() * this.hourlyWage);
+            minWage = (((double) this.timestamp.getMin() / 60) * this.hourlyWage);
+            secWage = ((((double) this.timestamp.getSec() / 60) / 60) * this.hourlyWage);
+            this.totalWage = (hourWage + minWage + secWage);
+        }
+        catch (InputMismatchException e){
+            System.out.println("Invalid input.");
+        }
     }
 
     public double getTotalWage() {

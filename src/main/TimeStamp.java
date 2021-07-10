@@ -18,12 +18,11 @@ public class TimeStamp {
 
     public TimeStamp(int hour, int min, int sec) {
         try {
-
             this.hour = hour;
             this.min = min;
             this.sec = sec;
         } catch (InputMismatchException exc) {
-            System.out.println("Invalid input");
+            System.out.println("Invalid input. hour, min, sec should be of type int");
         }
     }
 
@@ -79,7 +78,7 @@ public class TimeStamp {
     }
 
     /**
-     * addSec() will increment min if input received is > 60s.
+     * addSec() will increment min if input received is > 60s.     *
      *
      * @param sec
      */
@@ -91,11 +90,8 @@ public class TimeStamp {
                 this.min += (this.sec / 60);
                 this.sec = (this.sec % 60);
             }
-        }
-
-        // will update
-        catch (Exception e) {
-            System.out.println("error message");
+        } catch (InputMismatchException e) {
+            System.out.println("Invalid input. Data field sec should be of type int");
         }
 
     }

@@ -9,6 +9,7 @@ import java.util.InputMismatchException;
 public class GenerateOutputFiles {
     /**
      * This method is responsible for generating the final output file, the parameters passed are determined by
+     *
      * @param fileToBeGenerated
      * @param list
      * @throws IOException
@@ -80,7 +81,6 @@ public class GenerateOutputFiles {
                         employee.getLastName() + " " +
                         String.format("%02d", employee.getTimestamp().getHour()) + ":" + String.format("%02d", employee.getTimestamp().getMin()) + ":" + String.format("%02d", employee.getTimestamp().getSec()) + " " +
                         "$" + String.format("%.2f", employee.getHourlyWage()) + " " +
-                        //THIS LINE BELLOW CALCULATES THE TOTAL PAY (FIXED ALREADY!)
                         "$" + String.format("%.2f", employee.getTotalWage()) + "\n");
             }
 
@@ -100,8 +100,7 @@ public class GenerateOutputFiles {
             output.printf("Total pay: " + "$" + String.format("%.2f", totalPay));
             output.flush();
             writeFile.close();
-        } catch (
-                InputMismatchException e) {
+        } catch (FileNotFoundException e) {
             System.out.println("Could not find the input file.");
         }
     }
