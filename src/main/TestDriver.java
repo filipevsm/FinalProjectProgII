@@ -8,7 +8,6 @@ import java.util.Scanner;
  * This is the driver class.
  */
 
-
 public class TestDriver {
     public static void main(String[] args) throws IOException {
         ArrayList<String> stringList = new ArrayList<>();
@@ -17,12 +16,14 @@ public class TestDriver {
         /**
          * Program starts by processing the two input files (employees.txt, employeesHours.txt) prior
          * to showing the menu.
+         * @see ReadInputFiles.java
          */
         new ReadInputFiles(stringList,employeeList);
 
 
         /**
          * Generates a menu for the user to select which file is to be displayed.
+         * @see ReadFileToRuntime.java
          */
         Scanner input = new Scanner(System.in);
         int counter = 0;

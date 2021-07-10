@@ -85,7 +85,7 @@ public class GenerateOutputFiles {
             }
 
             /**
-             * totalTimeStamp sums the total time worked and total pay.
+             * totalTimeStamp() sums the total time worked and total pay.
              */
             TimeStamp totalTimestamp = new TimeStamp(0, 0, 0);
             double totalPay = 0;

@@ -13,7 +13,9 @@ public class ReadInputFiles {
     public ReadInputFiles(ArrayList<String> stringList, ArrayList<Employee> list) {
         int counter = 0;
         try {
-            //READS THE INPUT FILE employees.txt AND IMPORT IT TO ARRAYLIST (ONE STRING PER LINE) - PART 1
+            /**
+             * This block will read the input file "employees.txt" and import it to an Arraylist one string at a time.
+             */
             File readFile = new File("employees.txt");
             Scanner textRead = new Scanner(readFile);
             while (textRead.hasNext()) {
@@ -32,6 +34,9 @@ public class ReadInputFiles {
         }
 
         try {
+            /**
+             * This block will read the file "employeesHours.txt" and import it to the Arraylist
+             */
             //READS THE INPUT FILE employeesHours.txt AND IMPORT IT TO ARRAYLIST (SORTED EMPLOYEE FIELDS LIST) - PART 2
             File readFile = new File("employeesHours.txt");
             Scanner textRead = new Scanner(readFile);

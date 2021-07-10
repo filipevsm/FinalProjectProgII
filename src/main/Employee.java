@@ -18,7 +18,6 @@ public class Employee {
      * @param hourlyWage
      */
     public Employee(int employeeNumber, String lastName, String firstName, double hourlyWage) {
-        // excep?
         this.employeeNumber = employeeNumber;
         this.lastName = lastName;
         this.firstName = firstName;
@@ -67,6 +66,7 @@ public class Employee {
     /**
      *
      *  Calculates the total wage of the employee based on total hours, minutes and seconds worked.
+     *  @see EmployeeTotalWageCompare.java
      */
     public void setTotalWage() {
         double hourWage, minWage, secWage;

@@ -39,7 +39,7 @@ public class TimeStamp {
     }
 
     /**
-     * addMin will increment hour if input received is > 60m.
+     * addMin() will increment hour if input received is > 60m.
      * @param min
      */
     public void addMin(int min) {
@@ -59,7 +59,7 @@ public class TimeStamp {
     }
 
     /**
-     * addSec will increment min if input received is > 60s.
+     * addSec() will increment min if input received is > 60s.
      * @param sec
      */
     public void addSec(int sec) {
