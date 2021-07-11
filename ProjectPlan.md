@@ -53,23 +53,39 @@ readInputFiles()
 Input: ArrayList<String> stringList, ArrayList<Employee> employeeList
 	
 Output: two files objects (one for each file input)
+	
 File newFile = new File(file)
+	
 Scanner obj, while scanner hasNext
 
 generateOutputFiles()
+	
 Should generate whatever file in passed as parameter (user choice)
+	
 Input: String file, ArrayList<Employee> AL
+	
 Output: parameterChosenOrder.txt
+	
 FileOutputStream writingFile = new FOS(fileToBeGenerated)
+	
 switch(fileToBeGenerated)
+	
 Case for each option available in the menu (nameOrder.txt, etc.)
+	
 try/catch blocks - IOException & InputMismatch
+	
 readFiletoRuntime()
+	
 Should read and display the file generated (@generateOutputFiles) to the console
+	
 Input: fileToBeRead 
+	
 Output: Displays the sorted file
+	
 File newFile = new File(file)
+	
 Scanner obj, while scanner hasNext
+	
 Throws IOException
 
 
@@ -79,8 +95,12 @@ Comparator classes
 		  1 if e1 > e2
 
 Main Method
+	
 Program should start by processing the two input files prior to showing the menu
+	
 Generate and display menu
+	
 Initialize an instance of Employee class for each employee listed (employees.txt)
+	
 Create file object for each input (employees.txt + employeesHours.txt)
 
