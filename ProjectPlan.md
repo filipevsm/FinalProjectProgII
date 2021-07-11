@@ -3,36 +3,55 @@ Kevin Darby & Filipe Moreira
 Project Outline & Pseudo Code 
 
 Program Objective
+
 Read data from 2 text files, employees.txt and employeesHours.txt
- Process the data into objects
+
+Process the data into objects
+
 Generate 4 reports in 4 different text files
 
 Core Classes & Methods
 
 Employee Class
+
 Instance Variables: empNumber, firstName, lastName, hourlyWage, totalWage, TimeStamp
+
 Constructors - Employee
+
 Methods - get&setEmpNumber, get&setTimeStamp, get&setHourlyWage, get&setFirstName, get&setLastName, get&setTotalWage
 
 TimeStamp Class
+
 Instance Variables:  hour, minute, second
+
 Constructors - TimeStamp
+
 Methods - get&setHour, get&setMin, get&setSec, addHour, addMin, addSec
 
 setTotalWage()
+
 Calculates the total wage of the employee based on total hours, minutes and seconds worked	
 	
 Input: hourWage, minWage, secWage
+
 Output: totalWage
+
 Pseudo Code: hWage = timestamp.getHour * hWage
+
 		mWage = timestamp.getMin / 60 * hWage
+		
 		sWage = timestamp.getSec / 60 / 60 * hWage
+		
 		totalWage = hWage +mWage + sWage;
 
 readInputFiles()
+
 	1st part: read “employees.txt” and import to ArrayList
-	2nd: clear ArrayList first, read “employeesHours.txt” and import.		
+	
+	2nd: clear ArrayList first, read “employeesHours.txt” and import.	
+	
 Input: ArrayList<String> stringList, ArrayList<Employee> employeeList
+	
 Output: two files objects (one for each file input)
 File newFile = new File(file)
 Scanner obj, while scanner hasNext
