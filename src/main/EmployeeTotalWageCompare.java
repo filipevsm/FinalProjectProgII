@@ -15,13 +15,8 @@ public class EmployeeTotalWageCompare implements Comparator<Employee> {
      */
     // maybe change to boolean?
     public int compare(Employee employee1, Employee employee2) {
-        try {
             if (employee1.getTotalWage() < employee2.getTotalWage()) return -1;
             if (employee1.getTotalWage() > employee2.getTotalWage()) return 1;
             else return 0;
-
-        } catch (InputMismatchException e) {
-            System.out.println("Invalid input");
         }
     }
-}
