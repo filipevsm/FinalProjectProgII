@@ -1,4 +1,8 @@
+import main.TimeStamp;
 import org.junit.jupiter.api.Test;
+
+import java.util.InputMismatchException;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TimeStampTest {
@@ -57,6 +61,7 @@ public class TimeStampTest {
         TimeStamp t = new TimeStamp(1,1,1);
         t.addMin(1);
         assertEquals(2, t.getMin());
+
     }
 
 

@@ -4,9 +4,6 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.InputMismatchException;
 
-/**
- * <p> I am testing javadocs HTML tags </p>
- */
 public class Employee implements Serializable {
     private int employeeNumber;
     private String firstName, lastName;
@@ -91,6 +88,10 @@ public class Employee implements Serializable {
         }
     }
 
+    /**
+     *
+     * @return totalWage
+     */
     public double getTotalWage() {
         setTotalWage();
         return totalWage;

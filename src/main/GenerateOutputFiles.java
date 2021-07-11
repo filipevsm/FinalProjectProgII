@@ -8,9 +8,8 @@ import java.util.InputMismatchException;
 
 public class GenerateOutputFiles {
     /**
-     * This method is responsible for generating the final output file, the parameters passed are determined by
-     * the selection made by the user in the menu.
-     * @param fileToBeGenerated chosen in menu.
+     * This method is responsible for generating the final output file.
+     * @param fileToBeGenerated is chosen by the user in the menu.
      * @param employeeList
      * @throws IOException
      */
@@ -61,7 +60,8 @@ public class GenerateOutputFiles {
                 case "payOrder.txt":
                     try {
                         /**
-                         * This try block will attempt to generate the file "payOrder.txt".
+                         * This try block will attempt to generate the file "payOrder.txt" by calling Collections.sort()
+                         * with the parameters of employeeList and the totalWageCompare method.
                          */
                         EmployeeTotalWageCompare totalWageCompare = new EmployeeTotalWageCompare();
                         Collections.sort(employeeList, totalWageCompare);
@@ -85,7 +85,7 @@ public class GenerateOutputFiles {
             }
 
             /**
-             * totalTimeStamp() sums the total time worked and total pay.
+             * totalTimeStamp sums the total time worked and total pay.
              */
             TimeStamp totalTimestamp = new TimeStamp(0, 0, 0);
             double totalPay = 0;
