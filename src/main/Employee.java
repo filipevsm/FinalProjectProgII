@@ -112,8 +112,7 @@ public class Employee implements Serializable {
     }
 
     /**
-     * Calculates the total wage of the employee based on total hours, minutes and seconds worked.
-     *
+     * Calculates the total wage of the employee by isolating the wage due for each hour, minute and second and then totaling them.     *
      * @see EmployeeTotalWageCompare
      */
     public void setTotalWage() {
