@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- * This is the driver class.
+ * This is the driver class. All required methods will be called in this class.
  */
 
 public class TestDriver {
