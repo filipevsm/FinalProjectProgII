@@ -38,7 +38,8 @@ public class ReadInputFiles {
             /**
              * This block will read the file "employeesHours.txt" and import it to the Arraylist.
              * Scanner object will read the contents of the file, and close automatically when it reaches the end.
-             * for loop is doing ____
+             * For loop is comparing the contents of the first list with the second.
+             * If employeeNum is the same, hours will be added to the Employee object.
              */
 
             File readFile = new File("employeesHours.txt");
@@ -47,11 +48,6 @@ public class ReadInputFiles {
             while (textRead.hasNext()) {
                 stringList.add(textRead.next());
             }
-            // unclear about this part
-            //employeelist.get(i).getEmployeeNumber() == Integer.parseInt(parts[0]
-            // first part is accessing an employee in the list and getting their #
-            // second part is parsing the data in the list to find the emp #
-            // then comparing?
 
             for (int i = 0; i < employeelist.size(); i++) {
                 for (int y = 0; y < stringList.size(); y++) {
