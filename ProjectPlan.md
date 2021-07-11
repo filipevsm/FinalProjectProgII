@@ -1,6 +1,7 @@
 Kevin Darby & Filipe Moreira
 
 Project Outline & Pseudo Code 
+
 Program Objective
 Read data from 2 text files, employees.txt and employeesHours.txt
  Process the data into objects
