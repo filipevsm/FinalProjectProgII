@@ -14,10 +14,10 @@ public class Employee implements Serializable {
     /**
      * This is the constructor for Employee, which will be initialized for each employee read.
      *
-     * @param employeeNumber
-     * @param lastName
-     * @param firstName
-     * @param hourlyWage
+     * @param employeeNumber first value in employees.txt
+     * @param lastName second value in employees.txt
+     * @param firstName third value in employees.txt
+     * @param hourlyWage fourth value in employees.txt
      */
     public Employee(int employeeNumber, String lastName, String firstName, double hourlyWage) {
         try {
@@ -31,42 +31,82 @@ public class Employee implements Serializable {
 
     }
 
+    /**
+     * Reassigns the employeeNumber passed to the Employee object.
+     * @param employeeNumber
+     */
     public void setEmployeeNumber(int employeeNumber) {
         this.employeeNumber = employeeNumber;
     }
 
+    /**
+     *
+     * @return employeeNumber of the Employee object.
+     */
     public int getEmployeeNumber() {
         return employeeNumber;
     }
 
+    /**
+     * Reassigns the value of firstName passed to the Employee object.
+     * @param firstName
+     */
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
+    /**
+     *
+     * @return firstName of the Employee object.
+     */
     public String getFirstName() {
         return firstName;
     }
 
+    /**
+     * Reassigns the value of lastName passed to the Employee object.
+     * @param lastName
+     */
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
+    /**
+     *
+     * @return lastName of the Employee object.
+     */
     public String getLastName() {
         return lastName;
     }
 
+    /**
+     * Reassigns the value of hourlyWage passed to the Employee object.
+     * @param hourlyWage
+     */
     public void setHourlyWage(double hourlyWage) {
         this.hourlyWage = hourlyWage;
     }
 
+    /**
+     *
+     * @return hourlyWage of the Employee object.
+     */
     public double getHourlyWage() {
         return hourlyWage;
     }
 
+    /**
+     * Reassigns the value of Timestamp passed to the Employee object.
+     * @param timestamp
+     */
     public void setTimestamp(TimeStamp timestamp) {
         this.timestamp = timestamp;
     }
 
+    /**
+     *
+     * @return timestamp of the Employee object.
+     */
     public TimeStamp getTimestamp() {
         return timestamp;
     }
@@ -89,7 +129,7 @@ public class Employee implements Serializable {
     }
 
     /**
-     *
+     * This method will first call setTotalWage() to initialize the variable totalWage, and then return it.
      * @return totalWage
      */
     public double getTotalWage() {
@@ -97,7 +137,10 @@ public class Employee implements Serializable {
         return totalWage;
     }
 
-
+    /**
+     *  Adds the total wage calculated to the cumulative sum of the wage owed for each Employee.
+     * @param totalWage
+     */
     public void addTotalWage(double totalWage) {
         this.totalWage += totalWage;
     }
