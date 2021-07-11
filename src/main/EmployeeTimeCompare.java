@@ -13,7 +13,7 @@ public class EmployeeTimeCompare implements Comparator<Employee> {
      * @return -1 if emp1 is < emp2
      *          1 if emp1 is > emp2
      */
-    public int compare(Employee employee1, Employee employee2) {
+    public int compare(Employee employee1, Employee employee2) throws InputMismatchException {
             if (employee1.getTimestamp().getHour() < employee2.getTimestamp().getHour()) return -1;
             if (employee1.getTimestamp().getHour() > employee2.getTimestamp().getHour()) return 1;
             else return 0;

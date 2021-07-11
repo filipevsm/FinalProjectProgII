@@ -10,10 +10,11 @@ public class EmployeeTotalWageCompare implements Comparator<Employee> {
      *
      * @param employee1
      * @param employee2
-     * @return
-     * @see setTotalWage
+     * @return -1 if emp1 < emp2
+     *          1 if emp1 > emp2
+     *
      */
-    public int compare(Employee employee1, Employee employee2) {
+    public int compare(Employee employee1, Employee employee2) throws InputMismatchException{
             if (employee1.getTotalWage() < employee2.getTotalWage()) return -1;
             if (employee1.getTotalWage() > employee2.getTotalWage()) return 1;
             else return 0;
