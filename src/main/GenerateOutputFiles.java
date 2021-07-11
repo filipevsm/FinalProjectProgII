@@ -10,8 +10,8 @@ public class GenerateOutputFiles {
     /**
      * This method is responsible for generating the final output file.
      * @param fileToBeGenerated is chosen by the user in the menu.
-     * @param employeeList
-     * @throws IOException
+     * @param employeeList is the list that is initialized in main and passed to the respective read/write methods.
+     * @throws IOException occurs if an IO operation fails.
      */
     public GenerateOutputFiles(String fileToBeGenerated, ArrayList<Employee> employeeList) throws IOException {
         try {
@@ -24,7 +24,11 @@ public class GenerateOutputFiles {
                 case "employeeNumberOrder.txt":
                     try {
                         /**
-                         * This try block will attempt to generate the file "employeeNumberOrder.txt".
+                         * This try block will attempt to generate the file "employeeNumberOrder.txt", by passing the list
+                         * of employees that was just read and written to an ArrayList in ReadInputFiles.java, and calling
+                         * the compare method in EmployeeNumberCompare.
+                         * @see ReadInputFiles
+                         * @see EmployeeNumberCompare
                          */
                         EmployeeNumberCompare numberCompare = new EmployeeNumberCompare();
                         Collections.sort(employeeList, numberCompare);
@@ -36,7 +40,10 @@ public class GenerateOutputFiles {
                 case "nameOrder.txt":
                     try {
                         /**
-                         * This try block will attempt to generate the file "nameOrder.txt".
+                         * This try block will attempt to generate the file "nameOrder.txt", by passing the ArrayList of
+                         * employees, and calling the compare method in EmployeeLastNameCompare.
+                         * @see ReadInputFiles
+                         * @see EmployeeLastNameCompare
                          */
                         EmployeeLastNameCompare lastNameCompare = new EmployeeLastNameCompare();
                         Collections.sort(employeeList, lastNameCompare);
@@ -48,7 +55,10 @@ public class GenerateOutputFiles {
                 case "timeOrder.txt":
                     try {
                         /**
-                         * This try block will attempt to generate the file "timeOrder.txt".
+                         * This try block will attempt to generate the file "timeOrder.txt", by passing the ArrayList of
+                         * employees, and calling the compare method in EmployeeTimeCompare.
+                         * @see ReadInputFiles
+                         * @see EmployeeTimeCompare
                          */
                         EmployeeTimeCompare hourlyWageCompare = new EmployeeTimeCompare();
                         Collections.sort(employeeList, hourlyWageCompare);
@@ -60,8 +70,10 @@ public class GenerateOutputFiles {
                 case "payOrder.txt":
                     try {
                         /**
-                         * This try block will attempt to generate the file "payOrder.txt" by calling Collections.sort()
-                         * with the parameters of employeeList and the totalWageCompare method.
+                         * This try block will attempt to generate the file "payOrder.txt" by passing the ArrayList of
+                         * employees, and calling the compare method in EmployeeTotalWageCompare.
+                         * @see ReadInputFiles
+                         * @see EmployeeTotalWageCompare
                          */
                         EmployeeTotalWageCompare totalWageCompare = new EmployeeTotalWageCompare();
                         Collections.sort(employeeList, totalWageCompare);
