@@ -9,12 +9,12 @@ import java.util.InputMismatchException;
 public class GenerateOutputFiles {
     /**
      * This method is responsible for generating the final output file, the parameters passed are determined by
-     *
-     * @param fileToBeGenerated
-     * @param list
+     * the selection made by the user in the menu.
+     * @param fileToBeGenerated chosen in menu.
+     * @param employeeList
      * @throws IOException
      */
-    public GenerateOutputFiles(String fileToBeGenerated, ArrayList<Employee> list) throws IOException {
+    public GenerateOutputFiles(String fileToBeGenerated, ArrayList<Employee> employeeList) throws IOException {
         try {
             FileOutputStream writeFile = new FileOutputStream(fileToBeGenerated);
             PrintWriter output = new PrintWriter(writeFile);
@@ -28,7 +28,7 @@ public class GenerateOutputFiles {
                          * This try block will attempt to generate the file "employeeNumberOrder.txt".
                          */
                         EmployeeNumberCompare numberCompare = new EmployeeNumberCompare();
-                        Collections.sort(list, numberCompare);
+                        Collections.sort(employeeList, numberCompare);
                     } catch (
                             InputMismatchException e) {
                         System.out.println("Could not generate the file " + fileToBeGenerated);
@@ -40,7 +40,7 @@ public class GenerateOutputFiles {
                          * This try block will attempt to generate the file "nameOrder.txt".
                          */
                         EmployeeLastNameCompare lastNameCompare = new EmployeeLastNameCompare();
-                        Collections.sort(list, lastNameCompare);
+                        Collections.sort(employeeList, lastNameCompare);
                     } catch (
                             InputMismatchException e) {
                         System.out.println("Could not generate the file " + fileToBeGenerated);
@@ -52,7 +52,7 @@ public class GenerateOutputFiles {
                          * This try block will attempt to generate the file "timeOrder.txt".
                          */
                         EmployeeTimeCompare hourlyWageCompare = new EmployeeTimeCompare();
-                        Collections.sort(list, hourlyWageCompare);
+                        Collections.sort(employeeList, hourlyWageCompare);
                     } catch (
                             InputMismatchException e) {
                         System.out.println("Could not generate the file " + fileToBeGenerated);
@@ -64,7 +64,7 @@ public class GenerateOutputFiles {
                          * This try block will attempt to generate the file "payOrder.txt".
                          */
                         EmployeeTotalWageCompare totalWageCompare = new EmployeeTotalWageCompare();
-                        Collections.sort(list, totalWageCompare);
+                        Collections.sort(employeeList, totalWageCompare);
                     } catch (
                             InputMismatchException e) {
                         System.out.println("Could not generate the file " + fileToBeGenerated);
@@ -75,7 +75,7 @@ public class GenerateOutputFiles {
             /**
              * This block will write the sorted list to the respective file.
              */
-            for (Employee employee : list) {
+            for (Employee employee : employeeList) {
                 output.printf(employee.getEmployeeNumber() + " " +
                         employee.getFirstName() + " " +
                         employee.getLastName() + " " +
@@ -89,11 +89,11 @@ public class GenerateOutputFiles {
              */
             TimeStamp totalTimestamp = new TimeStamp(0, 0, 0);
             double totalPay = 0;
-            for (int i = 0; i < list.size(); i++) {
-                totalTimestamp.addHour(list.get(i).getTimestamp().getHour());
-                totalTimestamp.addMin(list.get(i).getTimestamp().getMin());
-                totalTimestamp.addSec(list.get(i).getTimestamp().getSec());
-                totalPay += list.get(i).getTotalWage();
+            for (int i = 0; i < employeeList.size(); i++) {
+                totalTimestamp.addHour(employeeList.get(i).getTimestamp().getHour());
+                totalTimestamp.addMin(employeeList.get(i).getTimestamp().getMin());
+                totalTimestamp.addSec(employeeList.get(i).getTimestamp().getSec());
+                totalPay += employeeList.get(i).getTotalWage();
             }
             output.printf("Total time worked: " + String.format("%02d", totalTimestamp.getHour()) + ":" + String.format("%02d", totalTimestamp.getMin()) + ":" + String.format("%02d", totalTimestamp.getSec()) + "\n");
             output.flush();
